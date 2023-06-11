@@ -2,7 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Create a new `.evn.local` file in the root of the project and add the following:
+
+```txt
+GH_PAT=your_github_personal_access_token
+```
+
+Then, run the following command to install the dependencies:
+
+```bash
+npm install
+```
+
+Finally, run the development server:
 
 ```bash
 npm run dev

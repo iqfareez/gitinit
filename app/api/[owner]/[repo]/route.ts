@@ -90,16 +90,6 @@ export async function GET(request: Request, {params}: { params: { owner: string,
     console.log(owner, repo, shields)
 
     // get information about the GitHub repository
-    var options = {
-        method: 'GET',
-        url: 'https://api.github.com/repos/iqfareez/iium_schedule/commits',
-        headers: {
-            Accept: 'application/vnd.github+json',
-            Authorization: 'Bearer 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',
-            'X-GitHub-Api-Version': '2022-11-28'
-        }
-    };
-
     let apiResponse: AxiosResponse;
 
     try {
@@ -107,7 +97,7 @@ export async function GET(request: Request, {params}: { params: { owner: string,
             {
                 headers: {
                     Accept: 'application/vnd.github+json',
-                    Authorization: 'Bearer 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',
+                    Authorization: 'Bearer ' + process.env.GH_PAT,
                     'X-GitHub-Api-Version': '2022-11-28'
                 }
             }
