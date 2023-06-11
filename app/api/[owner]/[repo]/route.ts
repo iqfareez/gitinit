@@ -87,8 +87,6 @@ export async function GET(request: Request, {params}: { params: { owner: string,
     const { searchParams } = new URL(request.url)
     const shields = searchParams.get('shields')
 
-    console.log(owner, repo, shields)
-
     // get information about the GitHub repository
     let apiResponse: AxiosResponse;
 
