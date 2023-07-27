@@ -86,6 +86,7 @@ export async function GET(request: Request, {params}: { params: { owner: string,
     const repo = params.repo;
     const { searchParams } = new URL(request.url)
     const shields = searchParams.get('shields')
+    const customLabel = searchParams.get('label')
 
     // get information about the GitHub repository
     let apiResponse: AxiosResponse;
@@ -110,15 +111,15 @@ export async function GET(request: Request, {params}: { params: { owner: string,
     // TODO: Not working. Need to use since and until parameter
     // https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28#list-commits-on-a-repository
     // https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#get-a-repository
-    const firstCommit: GhCommit = apiResponse.data[apiResponse.data.length - 1];
+    const latestCommit: GhCommit = apiResponse.data[0];
 
-    const relativeDate = getRelativeDate(firstCommit.commit.author.date);
+    const relativeDate = getRelativeDate(latestCommit.commit.author.date);
 
     if (shields === "yes") {
         return NextResponse.json(
             {
                 schemaVersion: 1,
-                label: "First Commit",
+                label: customLabel != undefined? customLabel: "Latest Commit",
                 message: relativeDate,
                 color: "orange"
             }
@@ -126,10 +127,10 @@ export async function GET(request: Request, {params}: { params: { owner: string,
     }
 
     return NextResponse.json({
-        commit_message: firstCommit.commit.message,
-        commit_date: firstCommit.commit.author.date,
-        author_username: firstCommit.author.login,
-        author_gravatar: firstCommit.author.avatar_url,
+        commit_message: latestCommit.commit.message,
+        commit_date: latestCommit.commit.author.date,
+        author_username: latestCommit.author.login,
+        author_gravatar: latestCommit.author.avatar_url,
     }, {status: 200});
 }
 

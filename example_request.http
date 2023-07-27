@@ -1,0 +1,14 @@
+// Dev enviroment
+
+### Normal
+GET http://localhost:3000/api/iqfareez/iium_schedule
+Accept: application/json
+
+### Shields.io
+GET http://localhost:3000/api/iqfareez/iium_schedule?shields=yes
+Accept: application/json
+
+### Custom Shields.io label
+GET http://localhost:3000/api/iqfareez/iium_schedule?shields=yes&label=Latest%20Update
+Accept: application/json
+

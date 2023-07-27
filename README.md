@@ -1,4 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GitInit
+
+GitInit is a simple API servive that returns the latest commit of a GitHub repository.
+
+> Initially, the gitinit is supposed to show repository's initial commit (like [firstcommit](https://firstcommit.vercel.app/?repo=iqfareez/iium_schedule)). But the implementation
+is somewhat difficult and I wanted to ship this project asap.
+
+## Usage
+
+### Basic
+
+To use the API, simply make a `GET` request to `https://gitinit-psi.vercel.app/api/<owner>/<repo>`. Example: https://gitinit-psi.vercel.app/api/iqfareez/gitinit
+
+### Shields.IO badge
+
+Also available with [Shields.IO](https://shields.io/) variants. Docs https://shields.io/badges/endpoint-badge
+
+![Endpoint Badge](https://img.shields.io/endpoint?url=https://gitinit-psi.vercel.app/api/iqfareez/gitinit?shields=yes)
+
+`![Endpoint Badge](https://img.shields.io/endpoint?url=https://gitinit-psi.vercel.app/api/iqfareez/gitinit?shields=yes)`
+
+The badge label can be customized by supply `label` to the query string.
+
+![Endpoint Badge](https://img.shields.io/endpoint?url=https://gitinit-psi.vercel.app/api/iqfareez/gitinit?shields=yes&label=My+Custom+Label)
+
+`![Endpoint Badge](https://img.shields.io/endpoint?url=https://gitinit-psi.vercel.app/api/iqfareez/gitinit?shields=yes&label=My+Custom+Label)`
 
 ## Getting Started
 
