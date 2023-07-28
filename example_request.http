@@ -1,14 +1,15 @@
-// Dev enviroment
+// This file is API endpoint testing for WebStorm's HTTP Client
+// https://www.jetbrains.com/help/webstorm/http-client-in-product-code-editor.html
 
 ### Normal
-GET http://localhost:3000/api/iqfareez/iium_schedule
+GET http://{{host}}/api/iqfareez/iium_schedule
 Accept: application/json
 
 ### Shields.io
-GET http://localhost:3000/api/iqfareez/iium_schedule?shields=yes
+GET http://{{host}}/api/iqfareez/iium_schedule?shields=yes
 Accept: application/json
 
 ### Custom Shields.io label
-GET http://localhost:3000/api/iqfareez/iium_schedule?shields=yes&label=Latest%20Update
+GET http://{{host}}/api/iqfareez/iium_schedule?shields=yes&label=Latest%20Update
 Accept: application/json
 
